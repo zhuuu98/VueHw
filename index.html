@@ -27,6 +27,27 @@
 
 </head>
 <body>
+    <!-- -----------Vue---------- -->
+    <div id="app">
+        {{ count }}
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+    //建立一個app的函式把count的值代進去到有#app的div裡
+    Vue.createApp({
+        data(){
+            return{
+                count:'哈囉'
+            }
+        }
+    }).mount('#app')
+    </script>
+
+
+
+
+
     <!-- <div class="container"> -->
 
         
