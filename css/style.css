@@ -2475,3 +2475,14 @@ footer a{
 }
 
 
+
+/* --------------vue----------------------- */
+.introOrder:last-of-type{
+    display: flex;
+}
+.introOrder:last-child .pic{
+    display: flex;
+    order: -1;
+}
+
+

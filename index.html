@@ -40,16 +40,22 @@
             </div>
         </div>
 
+        <!-- intro -->
 
+        <div v-for="item in introductionData" :key="index" class="intro introOrder">
+            <div class="d-flex col-12">
+                <p class="text">
+                    <span class="highlight">{{item.highlight}}</span>{{item.text}}</p>
+                <div class="pic index-ring">
+                    <img :src="item.src" :alt="item.alt" style="width: 70%;">
+                </div>
+            </div>
+        </div>
 
-
-
-
-
-
-
-        <!-- {{ count }} -->
+        
     </div>
+    <!-- -----------Vue---------- -->
+
 
     <script src="https://unpkg.com/vue@next"></script>
     <script>
@@ -57,7 +63,6 @@
     Vue.createApp({
         data(){
             return{
-                count:'哈囉',
                 products:[
     {
         name: '淡水珍珠戒指',
@@ -102,6 +107,23 @@
         alt:'p6',
     }
 ],
+introductionData : [
+        {
+            // hello: "歡迎來到",
+            // title: "Curious Studio 好奇工作室",
+            // dream: "創造獨特銀飾品和寶石戒指的夢想之地！",
+            highlight: "歡迎來到\nCurious Studio 好奇工作室\n創造獨特銀飾品和寶石戒指的夢想之地！",
+            text: "除了提供精緻的銀飾品，我們也開辦寶石戒指製作課程，讓您親自打造屬於自己的戒指。 在課程中，您將學習使用銀黏土，並製作出獨特風格的戒指設計。 不論您是否有手作經驗，我們都歡迎您加入，體驗創造的樂趣並帶走自己親手製作的戒指。 期待與您一同體驗製作屬於您的特別寶石戒指！",
+            src: "./img/index/intro.png",
+            alt: "intro_ring"
+        },
+        {
+            highlight: "銀黏土是什麼？",
+            text: "銀黏土（Silver Clay）是結合純銀粉和有機樹脂、 類似黏土的材料，特點是容易塑型。經風乾及烤製後為999純銀，適合加上寶石，製作小飾品。",
+            src: "./img/index/silver_clay.png",
+            alt: "silver_clay",
+            }
+    ],
 
 
             }
@@ -227,6 +249,8 @@
         <div class="mb-banner">
             <img src="./img/index/mb-index.png" alt="mb-banner">
         </div>
+
+
         
         <div class="intro">
             <div class="d-flex col-12">
