@@ -29,7 +29,26 @@
 <body>
     <!-- -----------Vue---------- -->
     <div id="app">
-        {{ count }}
+        <!-- products -->
+        <div class="products-list">
+            <div v-for="item in products" :key="index" class="products-each">
+                <div class="product-pic">
+                    <a :href="item.link"><img :src="item.image" :alt="item.alt"></a>
+                </div>
+                <a :href="item.link"><h3>{{item.name}}</h3></a>
+                <p class="index-price">{{item.price}}</p>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- {{ count }} -->
     </div>
 
     <script src="https://unpkg.com/vue@next"></script>
@@ -38,7 +57,53 @@
     Vue.createApp({
         data(){
             return{
-                count:'哈囉'
+                count:'哈囉',
+                products:[
+    {
+        name: '淡水珍珠戒指',
+        image: './img/products/p1.jpg',
+        link: './product1.html',
+        price: '$1,000',
+        alt:'p1',
+    },
+    {
+        name: '閃閃方形耳環',
+        image: './img/products/p7.jpg',
+        link: './product1.html',
+        price: '$1,000',
+        alt:'p2',
+    },
+    {
+        name: '可頌耳環',
+        image: './img/products/p3.jpg',
+        link: './product1.html',
+        price: '$1,000',
+        alt:'p3',
+    },
+    {
+        name: '曬衣鍊手鍊',
+        image: './img/products/p4.png',
+        link: './product1.html',
+        price: '$1,000',
+        alt:'p4',
+    },
+    {
+        name: '雙重耳環',
+        image: './img/products/p5.jpg',
+        link: './product1.html',
+        price: '$1,000',
+        alt:'p5',
+    },
+    {
+        name: '金光閃閃戒指組',
+        image: './img/products/p6.jpg',
+        link: './product1.html',
+        price: '$1,200',
+        alt:'p6',
+    }
+],
+
+
             }
         }
     }).mount('#app')
@@ -293,7 +358,7 @@
                 <p>本網站為緯育TibaMe 前端工程師專業技術養成班學員作品，僅供學習、展示之用途。</p>
             </div>
         </footer>
-    <!-- </div> -->
+    </div>
         <script src="./js/jQuery.js"></script>
 </body>
 </html>
