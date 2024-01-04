@@ -31,8 +31,8 @@
     <div id="app">
         
 
-        <!-- navigationMenu -->
         <div class="header">
+            <!-- navigationMenu -->
             <div class="index-title" id="index-title">
                 <nav>
                     <ul>
@@ -51,22 +51,15 @@
                     <input type="search" name="search" class="search-bar" placeholder="搜尋商品">
                 </div>
             </div>
-        </div>
 
-
-
-        <!-- products -->
-        <div class="products-list">
-            <div v-for="item in products" :key="proIndex" class="products-each">
-                <div class="product-pic">
-                    <a :href="item.link"><img :src="item.image" :alt="item.alt"></a>
+            <div class="banner">
+                <div class="logo">
+                    <img src="img/logo/v2-white-logo-large.png" alt="curious studio">
                 </div>
-                <a :href="item.link"><h3>{{item.name}}</h3></a>
-                <p class="index-price">{{item.price}}</p>
             </div>
         </div>
 
-        <!-- intro -->
+        <!-- 修intro -->
 
         <div v-for="item in introductionData" :key="introIndex" class="intro introOrder">
             <div class="d-flex col-12">
@@ -77,6 +70,59 @@
                 </div>
             </div>
         </div>
+
+         <!-- products -->
+         <div class="index-products">
+            <div class="products-pic">
+                <img src="./img/index/products.pic.png" alt="products.pic">
+                <h1 class="index-products-h1">所有商品</h1>
+            </div>
+            <div class="products-list">
+                <div v-for="item in products" :key="proIndex" class="products-each">
+                    <div class="product-pic">
+                        <a :href="item.link"><img :src="item.image" :alt="item.alt"></a>
+                    </div>
+                    <a :href="item.link"><h3>{{item.name}}</h3></a>
+                    <p class="index-price">{{item.price}}</p>
+                </div>
+            </div>
+            <div class="index-products-btn">
+                <a href="./products.html" class="btn">
+                    所有商品
+                    <span></span><span></span><span></span><span></span>
+                </a>
+            </div>
+        </div>
+        <!--top-->
+        <a href="">
+            <div class="top">
+                <p>TOP</p>
+            </div>
+        </a>
+
+        <!--footer-->
+        <footer>
+            <p class="mb-footer-title">Curious Studio<br>好奇工作室</p>
+            <div class="d-flex mb-d-flex">
+                <div class="footer-logo col-2">
+                    <a href="./index.html"><img src="./img/logo/v2-white-logo-large.png" alt=""></a>
+                </div>
+                <ul class="footer-nav ">
+                    <li v-for="item in footerLinks" :key="footerIndex">
+                        <a :href="item.link">{{item.label}}</a>
+                    </li>
+                </ul>
+                <ul class="contact">
+                    <li>CONTACT</li>
+                    <li>電話：(02) 1234-1234</li>
+                    <li>信箱：service@curious.com</li>
+                    <li>客服時間：MON-FRI 09:00~18:00</li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>本網站為緯育TibaMe 前端工程師專業技術養成班學員作品，僅供學習、展示之用途。</p>
+            </div>
+        </footer>
 
         
     </div>
@@ -135,7 +181,9 @@
 ],
 introductionData : [
         {
-            highlight: "歡迎來到\nCurious Studio 好奇工作室\n創造獨特銀飾品和寶石戒指的夢想之地！",
+            highlight: `歡迎來到\n
+            Curious Studio 好奇工作室\n
+            創造獨特銀飾品和寶石戒指的夢想之地！\n`,
             text: "除了提供精緻的銀飾品，我們也開辦寶石戒指製作課程，讓您親自打造屬於自己的戒指。 在課程中，您將學習使用銀黏土，並製作出獨特風格的戒指設計。 不論您是否有手作經驗，我們都歡迎您加入，體驗創造的樂趣並帶走自己親手製作的戒指。 期待與您一同體驗製作屬於您的特別寶石戒指！",
             src: "./img/index/intro.png",
             alt: "intro_ring"
@@ -162,6 +210,14 @@ introductionData : [
     { label: '購物車', link: './cart.html' },
     { label: '登入', link: './signin.html' }
 ],
+    footerLinks:[
+    { label: '所有商品', link: './products.html' },
+    { label: '關於我們', link: './about.html' },
+    { label: '預約課程', link: './reservation.html' },
+    { label: '我的帳戶', link: './signin.html' },
+    { label: '最新消息', link: './news.html' },
+    { label: '購物車', link: './cart.html' }
+],
 
 
 
@@ -172,46 +228,6 @@ introductionData : [
     </script>
 
 
-
-
-
-    <!-- <div class="container"> -->
-
-        
-
-<!--         
-        <div class="header">
-
-            <div class="index-title" id="index-title">
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="./products.html">所有商品</a>
-                            <ul class="dropdown">
-                                <li><a href="./products.html">飾品</a></li>
-                                <li><a href="./tools.html">工具</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./reservation.html">預約課程</a></li>
-                        <li><a href="./news.html">最新消息</a></li>
-                        <li><a href="./about.html">關於我們</a></li>
-                        <li><a href="./cart.html">購物車</a></li>
-                        <li><a href="./signin.html">登入</a></li>
-                    </ul>
-                </nav>
-                <div class="search">
-                    <i class="fa-solid fa-magnifying-glass search-logo"></i>
-                    <input type="search" name="search" class="search-bar" placeholder=" ">
-                </div>
-            </nav>
-            
-            </div>
-            <div class="banner">
-                <div class="logo">
-                    <img src="img/logo/v2-white-logo-large.png" alt="curious studio">
-                </div>
-            </div>
-        </div> -->
 
 
 <!-- ----小header---- -->
@@ -291,32 +307,6 @@ introductionData : [
         </div>
 
 
-        
-        <div class="intro">
-            <div class="d-flex col-12">
-                <p class="text">
-                    <span class="highlight"><span class="fz22">歡迎來到<br>Curious Studio 好奇工作室</span><br>
-                    創造獨特銀飾品和寶石戒指的夢想之地！</span><br>
-                    除了提供精緻的銀飾品，我們也開辦寶石戒指製作課程，讓您親自打造屬於自己的戒指。<br>
-                    在課程中，您將學習使用銀黏土，並製作出獨特風格的戒指設計。<br>不論您是否有手作經驗，我們都歡迎您加入，體驗創造的樂趣並帶走自己親手製作的戒指。<br>
-                    期待與您一同體驗製作屬於您的特別寶石戒指！
-                </p>
-                <div class="pic index-ring">
-                    <img src="img/index/intro.png" alt="intro_ring">
-                </div>
-            </div>
-        </div>
-
-        <div class="intro-d-flex what">
-            <div class="pic">
-                <img src="./img/index/silver_clay.png" alt="silver_clay">
-            </div>
-            <section class="what-text">
-                <h1>銀黏土是什麼？</h1>
-                <p>銀黏土（Silver Clay）是結合純銀粉和有機樹脂、 類似黏土的材料，特點是容易塑型。經風乾及烤製後為999純銀，適合加上寶石，製作小飾品。</p>
-            </section>
-        </div>
-
         <div class="course">
 
                 <div id="sliderBoard">
@@ -342,51 +332,6 @@ introductionData : [
             </div>
         </div>
 
-        <div class="index-products">
-            <div class="products-pic">
-                <img src="./img/index/products.pic.png" alt="products.pic">
-                <h1 class="index-products-h1">所有商品</h1>
-            </div>
-
-            <div class="index-products-btn">
-                <a href="./products.html" class="btn">
-                    所有商品
-                    <span></span><span></span><span></span><span></span>
-                </a>
-            </div>
-        </div>
-
-        <a href="#index-title">
-            <div class="top">
-                <p>TOP</p>
-            </div>
-        </a>
-
-        <footer>
-            <p class="mb-footer-title">Curious Studio<br>好奇工作室</p>
-            <div class="d-flex mb-d-flex">
-                <div class="footer-logo col-2">
-                    <a href="./index.html"><img src="./img/logo/v2-white-logo-large.png" alt=""></a>
-                </div>
-                <ul class="footer-nav ">
-                    <li><a href="./products.html">所有商品</a></li>
-                    <li class="add-border"><a href="./about.html">關於我們</a></li>
-                    <li><a href="./reservation.html">預約課程</a></li>
-                    <li><a href="./signin.html">我的帳戶</a></li>
-                    <li class="add-border"><a href="./news.html">最新消息</a></li>
-                    <li><a href="./cart.html">購物車</a></li>
-                </ul>
-                <ul class="contact">
-                    <li>CONTACT</li>
-                    <li>電話：(02) 1234-1234</li>
-                    <li>信箱：service@curious.com</li>
-                    <li>客服時間：MON-FRI 09:00~18:00</li>
-                </ul>
-            </div>
-            <div class="copyright">
-                <p>本網站為緯育TibaMe 前端工程師專業技術養成班學員作品，僅供學習、展示之用途。</p>
-            </div>
-        </footer>
     </div>
         <script src="./js/jQuery.js"></script>
 </body>
