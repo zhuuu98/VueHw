@@ -29,6 +29,32 @@
 <body>
     <!-- -----------Vue---------- -->
     <div id="app">
+        
+
+        <!-- navigationMenu -->
+        <div class="header">
+            <div class="index-title" id="index-title">
+                <nav>
+                    <ul>
+                        <li  v-for="item in navigationMenu" :key="index">
+                            <a :href="item.link">{{item.label}}</a>
+                            <ul class="dropdown">
+                                <li v-for="(subItem, subIndex) in item.subMenu" :key="subIndex">
+                                    <a :href="subItem.link">{{subItem.label}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass search-logo"></i>
+                    <input type="search" name="search" class="search-bar" placeholder="搜尋商品">
+                </div>
+            </div>
+        </div>
+
+
+
         <!-- products -->
         <div class="products-list">
             <div v-for="item in products" :key="index" class="products-each">
@@ -124,6 +150,23 @@ introductionData : [
             alt: "silver_clay",
             }
     ],
+    navigationMenu:[
+    {
+        label: '所有商品',
+        link: './products.html',
+        subMenu: [
+            { label: '飾品', link: './products.html' },
+            { label: '工具', link: './tools.html' }
+        ]
+    },
+    { label: '預約課程', link: './reservation.html' },
+    { label: '最新消息', link: './news.html' },
+    { label: '關於我們', link: './about.html' },
+    { label: '購物車', link: './cart.html' },
+    { label: '登入', link: './signin.html' }
+],
+
+
 
 
             }
@@ -139,7 +182,7 @@ introductionData : [
 
         
 
-        
+<!--         
         <div class="header">
 
             <div class="index-title" id="index-title">
@@ -171,7 +214,7 @@ introductionData : [
                     <img src="img/logo/v2-white-logo-large.png" alt="curious studio">
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
 <!-- ----小header---- -->
@@ -306,41 +349,6 @@ introductionData : [
             <div class="products-pic">
                 <img src="./img/index/products.pic.png" alt="products.pic">
                 <h1 class="index-products-h1">所有商品</h1>
-            </div>
-
-            <div class="products-list">
-                <div class="products-each">
-                    <div class="product-pic">
-                        <a href="./product1.html"><img src="./img/products/p1.jpg" alt="p1"></a>
-                    </div>
-                    <a href="./product1.html"><h3>淡水珍珠戒指</h3></a>
-                    <p class="index-price">$1,000</p>
-                </div>
-                <div class="products-each">
-                    <div class="product-pic"><a href="./product1.html"><img src="./img/products/p7.jpg" alt="p2"></a></div>
-                    <a href="#"><h3>閃閃方形耳環</h3></a>
-                    <p class="index-price">$1,000</p>
-                </div>
-                <div class="products-each">
-                    <div class="product-pic"><a href="./product1.html"><img src="./img/products/p3.jpg" alt="p3"></a></div>
-                    <a href="#"><h3>可頌耳環</h3></a>
-                    <p class="index-price">$1,000</p>
-                </div>
-                <div class="products-each">
-                    <div class="product-pic"><a href="./product1.html"><img src="./img/products/p4.png" alt="p4"></a></div>
-                    <a href="#"><h3>曬衣鍊手鍊</h3></a>
-                    <p class="index-price">$1,000</p>
-                </div>
-                <div class="products-each">
-                    <div class="product-pic"><a href="./product1.html"><img src="./img/products/p5.jpg" alt="p5"></a></div>
-                    <a href="#"><h3>雙重耳環</h3></a>
-                    <p class="index-price">$1,000</p>
-                </div>
-                <div class="products-each">
-                    <div class="product-pic"><a href="./product1.html"><img src="./img/products/p6.jpg" alt="p6"></a></div>
-                    <a href="#"><h3>金光閃閃戒指組</h3></a>
-                    <p class="index-price">$1,200</p>
-                </div>
             </div>
 
             <div class="index-products-btn">
