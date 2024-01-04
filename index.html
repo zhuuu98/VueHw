@@ -36,9 +36,9 @@
             <div class="index-title" id="index-title">
                 <nav>
                     <ul>
-                        <li  v-for="item in navigationMenu" :key="index">
+                        <li  v-for="item in navigationMenu" :key="navIndex">
                             <a :href="item.link">{{item.label}}</a>
-                            <ul class="dropdown">
+                            <ul v-if="item.subMenu" class="dropdown">
                                 <li v-for="(subItem, subIndex) in item.subMenu" :key="subIndex">
                                     <a :href="subItem.link">{{subItem.label}}</a>
                                 </li>
@@ -57,7 +57,7 @@
 
         <!-- products -->
         <div class="products-list">
-            <div v-for="item in products" :key="index" class="products-each">
+            <div v-for="item in products" :key="proIndex" class="products-each">
                 <div class="product-pic">
                     <a :href="item.link"><img :src="item.image" :alt="item.alt"></a>
                 </div>
@@ -68,7 +68,7 @@
 
         <!-- intro -->
 
-        <div v-for="item in introductionData" :key="index" class="intro introOrder">
+        <div v-for="item in introductionData" :key="introIndex" class="intro introOrder">
             <div class="d-flex col-12">
                 <p class="text">
                     <span class="highlight">{{item.highlight}}</span>{{item.text}}</p>
@@ -83,7 +83,7 @@
     <!-- -----------Vue---------- -->
 
 
-    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
     //建立一個app的函式把count的值代進去到有#app的div裡
     Vue.createApp({
@@ -135,9 +135,6 @@
 ],
 introductionData : [
         {
-            // hello: "歡迎來到",
-            // title: "Curious Studio 好奇工作室",
-            // dream: "創造獨特銀飾品和寶石戒指的夢想之地！",
             highlight: "歡迎來到\nCurious Studio 好奇工作室\n創造獨特銀飾品和寶石戒指的夢想之地！",
             text: "除了提供精緻的銀飾品，我們也開辦寶石戒指製作課程，讓您親自打造屬於自己的戒指。 在課程中，您將學習使用銀黏土，並製作出獨特風格的戒指設計。 不論您是否有手作經驗，我們都歡迎您加入，體驗創造的樂趣並帶走自己親手製作的戒指。 期待與您一同體驗製作屬於您的特別寶石戒指！",
             src: "./img/index/intro.png",
