@@ -5,35 +5,6 @@ body{
     width: 100%;
     /* border: 1px solid green; */
 }
-a{
-    text-decoration: none;
-}
-
-
-h1{
-    color: #1F237D;
-    font-family: 'Julius Sans One', 'Kaisei Decol';
-    font-size: 24px;
-    font-weight: 400;
-    margin: 0;
-    padding: 15px 0;
-    /* border: 1px solid #fa0; */
-}
-
-h2{
-    font-size: 22px;
-    color: black;
-    margin: 0;
-    line-height: 30px;
-}
-
-h3{
-    font-size: 18px;
-    text-align: center;
-    color: black;
-    margin: 20px 0px 10px 0px;
-    /* background-color: red; */
-}
 
 /* .container{
     width: 100%;
@@ -78,6 +49,16 @@ ul{
     }
 }
 
+.d-flex{
+    display: flex;
+    /* border: 1px solid green; */
+}
+
+.pic{
+    width: 100%;
+    margin: auto;
+    /* border: 1px solid blue; */
+}
 
 img{
     vertical-align: middle;
@@ -85,23 +66,28 @@ img{
 }
 
 
-.intro{
-    margin-top: 100px;
-    margin: auto;
-    width: 75%;
+.pic img{
+    width: 100%;
+    
+    /* border: 1px solid yellow; */
 }
 
-.introOrder:last-child{
-    background-color: #fa0;
+.intro .pic{
+    position: relative;
 }
 
 
-.intro .d-flex{
-    display: flex;
-    margin: 40px auto;
+
+h1{
+    color: #1F237D;
+    font-family: 'Julius Sans One', 'Kaisei Decol';
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+    padding: 15px 0;
+    /* border: 1px solid #fa0; */
 }
 
-<<<<<<< HEAD
 h2{
     font-size: 22px;
     color: black;
@@ -137,13 +123,14 @@ h3{
     font-family: 'Noto Serif TC';
     width: 50%;
     /* border: 1px solid deeppink; */
-=======
-.intro .d-flex .text{
-    width: 58.3333%;
-    letter-spacing: 1.4px;
->>>>>>> dev
 }
-.intro .d-flex .text .highlight{
+
+a{
+    text-decoration: none;
+    /* background-color: aqua; */
+}
+
+.highlight{
     font-size: 18px;
     font-family: 'Julius Sans One', 'Kaisei Decol';
     color: #1F237D;
@@ -151,24 +138,9 @@ h3{
     line-height: 40px;
 }
 
-.intro .d-flex .text .highlight .fz22{
+.fz22{
     font-size: 22px;
 }
-
-.intro .d-flex .text .detail{
-    color: #6C6C6C;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 30px;
-    font-family: 'Noto Serif TC';
-    width: 50%;
-}
-
-.pic{
-    width: 41.66666%;
-    margin: auto;
-}
-
 
 @media screen and (width<=768px){
     h1{
@@ -856,6 +828,10 @@ footer a{
     /* border: 1px solid red; */
 }
 
+.index-ring{
+    width: 41.66666%;
+}
+
 .banner{
     width: 100%;
 }
@@ -905,6 +881,39 @@ footer a{
 .mb-banner{
     width: 100%;
     /* border: 1px solid red; */
+}
+
+.intro{
+    width: 100%;
+    margin: auto;
+    width: 75%;
+}
+
+@media (width > 768px) {
+    .intro{
+        margin-top: 100px;
+        /* border: 1px solid orange; */
+    }
+}
+
+.intro .text{
+    /* border: 1px solid red; */
+    width: 58.3333%;
+    margin: 0px -10px -10px -10px;
+}
+
+
+
+.intro .d-flex{
+    margin: 0px -10px 15px -10px;
+    /* border: 1px solid pink; */
+}
+
+
+.intro-d-flex{
+    display: flex;
+    margin: 40px auto;
+    width: 75%;
 }
 
 
@@ -1378,6 +1387,7 @@ footer a{
     margin-bottom: 150px;
     color: #6c6c6c;
     font-size: 16px;
+    dis
     /* border: 1px solid red; */
 }
 
@@ -2464,6 +2474,17 @@ footer a{
     border: 2px solid #1F237D;
     justify-content: center;
     align-items: center;
+}
+
+
+
+/* --------------vue----------------------- */
+.introOrder:last-of-type{
+    display: flex;
+}
+.introOrder:last-child .pic{
+    display: flex;
+    order: -1;
 }
 
 
