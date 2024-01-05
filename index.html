@@ -36,7 +36,7 @@
             <div class="index-title" id="index-title">
                 <nav>
                     <ul>
-                        <li  v-for="item in navigationMenu" :key="navIndex">
+                        <li v-for="item in navigationMenu" :key="navIndex">
                             <a :href="item.link">{{item.label}}</a>
                             <ul v-if="item.subMenu" class="dropdown">
                                 <li v-for="(subItem, subIndex) in item.subMenu" :key="subIndex">
@@ -59,17 +59,134 @@
             </div>
         </div>
 
+        <div class="mb-banner">
+            <img src="./img/index/mb-index.png" alt="mb-banner">
+        </div>
+
+
+        <!-- 滾動事件出來的nav -->
+        <header class="index-mb-header">
+            <div class="header-logo"><a href="./index.html">
+                <img src="./img/logo/header-logo.png" alt="header_logo">
+            </a></div>
+            <div class="title">
+            <nav>
+                    <ul>
+                        <li>
+                            <a href="./products.html">所有商品</a>
+                            <ul class="dropdown">
+                                <li><a href="./products.html">飾品</a></li>
+                                <li><a href="./tools.html">工具</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./reservation.html">預約課程</a></li>
+                        <li><a href="./news.html">最新消息</a></li>
+                        <li><a href="./about.html">關於我們</a></li>
+                        <li><a href="./cart.html">購物車</a></li>
+                        <li><a href="./signin.html">登入</a></li>
+                    </ul>
+                </nav>
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass search-logo"></i>
+                    <input type="search" name="search" class="search-bar" placeholder="搜尋商品">
+                </div>
+            </nav>
+
+            <input type="checkbox" id="ham">
+                    <label class="hamburger" id="hamburger" for="ham">
+                        <span class="ham-bar" id="hamBar1"></span>
+                        <span class="ham-bar" id="hamBar2"></span>
+                        <span class="ham-bar" id="hamBar3"></span>
+                    </label>
+
+            <nav class="ham-menu">
+
+                <div class="ham-search">
+                    <input type="text" class="ham-search-bar" placeholder="搜尋...">
+                </div>
+
+                <ul class="ham-menu-nav">
+
+                    <li class="products-li">
+                        <a href="./products.html" >所有商品</a>
+                        <input type="checkbox" name="" id="sub-switch">
+                        <label for="sub-switch" class="icon "><i class="fa-solid fa-sort-down"></i></label>
+                        <ul class="ham-dropdown">
+                            <li><a href="./products.html">飾品</a></li>
+                            <li><a href="./tools.html">工具</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./reservation.html">預約課程</a></li>
+                    <li><a href="./news.html">最新消息</a></li>
+                    <li><a href="./about.html">關於我們</a></li>
+                    <li><a href="./cart.html">購物車</a></li>
+                    <li><a href="./signin.html">登入</a></li>
+                </ul>
+            </nav>
+        
+            </div>
+        </header>
+
+        <label id="overlay" for="ham"></label>
+
         <!-- 修intro -->
 
         <div v-for="item in introductionData" :key="introIndex" class="intro introOrder">
             <div class="d-flex col-12">
-                <p class="text">
-                    <span class="highlight">{{item.highlight}}</span>{{item.text}}</p>
+                <span class="text">
+                    <span class="highlight">
+                        <span class="fz22">
+                            {{item.highlight1}}<br>
+                            {{item.highlight2}}<br>
+                        </span>
+                        {{item.highlight3}}<br>
+                    </span>
+                    <span class="detail">
+                        {{item.text1}}<br>
+                        {{item.text2}}<br>
+                        {{item.text3}}<br>
+                        {{item.text4}}<br>
+                    </span>
+                </span>
                 <div class="pic index-ring">
                     <img :src="item.src" :alt="item.alt" style="width: 70%;">
                 </div>
             </div>
         </div>
+
+        <!-- jquery改寫 -->            
+ 
+
+
+        <div class="course">
+
+            <div id="sliderBoard">
+                <ul id="content">
+                    <li><img src="./img/index/c1.jpg" class="image" alt="c1"></li>
+                    <li><img src="./img/index/c2.jpg" class="image" alt="c2"></li>
+                    <li><img src="./img/index/c3.jpg" class="image" alt="c3"></li>
+                    <li><img src="./img/index/c4.jpg" class="image" alt="c4"></li>
+                </ul>
+                <ul id="contentButton"></ul>
+            </div>
+        
+        <div class="section">
+            <h1>體驗課程</h1>
+            <p>本課程適合想擁有屬於自己獨一無二飾品、留下特別回憶的人。<br>
+            銀黏土是創意領域的寶藏，可以激發個人創造力，讓每個人都擁有獨特作品！</p>
+            <div class="course-btn">
+                <a href="./reservation.html" class="btn">
+                    立即預約
+                    <span></span><span></span><span></span><span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 
          <!-- products -->
          <div class="index-products">
@@ -93,6 +210,9 @@
                 </a>
             </div>
         </div>
+
+
+
         <!--top-->
         <a href="">
             <div class="top">
@@ -113,10 +233,7 @@
                     </li>
                 </ul>
                 <ul class="contact">
-                    <li>CONTACT</li>
-                    <li>電話：(02) 1234-1234</li>
-                    <li>信箱：service@curious.com</li>
-                    <li>客服時間：MON-FRI 09:00~18:00</li>
+                    <li v-for="item in contacts" :key="conIndex">{{item.text}}</li>
                 </ul>
             </div>
             <div class="copyright">
@@ -181,16 +298,19 @@
 ],
 introductionData : [
         {
-            highlight: `歡迎來到\n
-            Curious Studio 好奇工作室\n
-            創造獨特銀飾品和寶石戒指的夢想之地！\n`,
-            text: "除了提供精緻的銀飾品，我們也開辦寶石戒指製作課程，讓您親自打造屬於自己的戒指。 在課程中，您將學習使用銀黏土，並製作出獨特風格的戒指設計。 不論您是否有手作經驗，我們都歡迎您加入，體驗創造的樂趣並帶走自己親手製作的戒指。 期待與您一同體驗製作屬於您的特別寶石戒指！",
+            highlight1: '歡迎來到',
+            highlight2:'Curious Studio 好奇工作室',
+            highlight3:'創造獨特銀飾品和寶石戒指的夢想之地！',
+            text1: '除了提供精緻的銀飾品，我們也開辦寶石戒指製作課程，讓您親自打造屬於自己的戒指。',
+            text2:'在課程中，您將學習使用銀黏土，並製作出獨特風格的戒指設計。',
+            text3:'不論您是否有手作經驗，我們都歡迎您加入，體驗創造的樂趣並帶走自己親手製作的戒指。',
+            text4:' 期待與您一同體驗製作屬於您的特別寶石戒指！',
             src: "./img/index/intro.png",
             alt: "intro_ring"
         },
         {
-            highlight: "銀黏土是什麼？",
-            text: "銀黏土（Silver Clay）是結合純銀粉和有機樹脂、 類似黏土的材料，特點是容易塑型。經風乾及烤製後為999純銀，適合加上寶石，製作小飾品。",
+            highlight3: "銀黏土是什麼？",
+            text1: "銀黏土（Silver Clay）是結合純銀粉和有機樹脂、 類似黏土的材料，特點是容易塑型。經風乾及烤製後為999純銀，適合加上寶石，製作小飾品。",
             src: "./img/index/silver_clay.png",
             alt: "silver_clay",
             }
@@ -218,6 +338,12 @@ introductionData : [
     { label: '最新消息', link: './news.html' },
     { label: '購物車', link: './cart.html' }
 ],
+    contacts:[
+        {text:'CONTACT'},
+        {text:'電話：(02) 1234-1234'},
+        {text:'信箱：service@curious.com'},
+        {text:'客服時間：MON-FRI 09:00~18:00'}
+    ],
 
 
 
@@ -226,111 +352,6 @@ introductionData : [
         }
     }).mount('#app')
     </script>
-
-
-
-
-<!-- ----小header---- -->
-
-        <header class="index-mb-header">
-            <div class="header-logo"><a href="./index.html">
-                <img src="./img/logo/header-logo.png" alt="header_logo">
-            </a></div>
-            <div class="title">
-            <nav>
-                    <ul>
-                        <li>
-                            <a href="./products.html">所有商品</a>
-                            <ul class="dropdown">
-                                <li><a href="./products.html">飾品</a></li>
-                                <li><a href="./tools.html">工具</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./reservation.html">預約課程</a></li>
-                        <li><a href="./news.html">最新消息</a></li>
-                        <li><a href="./about.html">關於我們</a></li>
-                        <li><a href="./cart.html">購物車</a></li>
-                        <li><a href="./signin.html">登入</a></li>
-                    </ul>
-                </nav>
-                <div class="search">
-                    <i class="fa-solid fa-magnifying-glass search-logo"></i>
-                    <input type="search" name="search" class="search-bar" placeholder=" ">
-                </div>
-            </nav>
-
-            <input type="checkbox" id="ham">
-                    <label class="hamburger" id="hamburger" for="ham">
-                        <span class="ham-bar" id="hamBar1"></span>
-                        <span class="ham-bar" id="hamBar2"></span>
-                        <span class="ham-bar" id="hamBar3"></span>
-                    </label>
-
-            <nav class="ham-menu">
-
-            <div class="ham-search">
-                <input type="text" class="ham-search-bar" placeholder="搜尋...">
-            </div>
-
-                    <ul class="ham-menu-nav">
-
-                        <li class="products-li">
-                            <a href="./products.html" >所有商品</a>
-                            <input type="checkbox" name="" id="sub-switch">
-                            <label for="sub-switch" class="icon "><i class="fa-solid fa-sort-down"></i></label>
-                            <ul class="ham-dropdown">
-                                <li><a href="./products.html">飾品</a></li>
-                                <li><a href="./tools.html">工具</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./reservation.html">預約課程</a></li>
-                        <li><a href="./news.html">最新消息</a></li>
-                        <li><a href="./about.html">關於我們</a></li>
-                        <li><a href="./cart.html">購物車</a></li>
-                        <li><a href="./signin.html">登入</a></li>
-                    </ul>
-            </nav>
-        
-            </div>
-        </header>
-
-        <label id="overlay" for="ham"></label>
-
-<!-- ----小header---- -->
-
-
-
-
-            
-        <div class="mb-banner">
-            <img src="./img/index/mb-index.png" alt="mb-banner">
-        </div>
-
-
-        <div class="course">
-
-                <div id="sliderBoard">
-                    <ul id="content">
-                        <li><img src="./img/index/c1.jpg" class="image" alt="c1"></li>
-                        <li><img src="./img/index/c2.jpg" class="image" alt="c2"></li>
-                        <li><img src="./img/index/c3.jpg" class="image" alt="c3"></li>
-                        <li><img src="./img/index/c4.jpg" class="image" alt="c4"></li>
-                    </ul>
-                    <ul id="contentButton"></ul>
-                </div>
-            
-            <div class="section">
-                <h1>體驗課程</h1>
-                <p>本課程適合想擁有屬於自己獨一無二飾品、留下特別回憶的人。<br>
-                銀黏土是創意領域的寶藏，可以激發個人創造力，讓每個人都擁有獨特作品！</p>
-                <div class="course-btn">
-                    <a href="./reservation.html" class="btn">
-                        立即預約
-                        <span></span><span></span><span></span><span></span>
-                    </a>
-                </div>
-            </div>
-        </div>
 
     </div>
         <script src="./js/jQuery.js"></script>
